@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>The Speakeasy Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-with-logo">
+            <img src="bar-chat-assistant.png" alt="The Speakeasy" class="header-logo">
+            <h1>The Speakeasy Chatbot</h1>
+        </div>
+        <p class="tagline">Cocktails, substitutions, batching & fixes – the barkeep runs in your browser</p>
+
+        <section id="model-download-section" class="model-download-section" hidden>
+            <h2>Load the Model (required once)</h2>
+            <p id="model-download-message" class="model-download-message"></p>
+            <div id="model-download-progress-wrap" class="model-download-progress-wrap" hidden>
+                <div class="model-download-progress-bar"><div id="model-download-progress-fill" class="model-download-progress-fill"></div></div>
+                <span id="model-download-progress-text" class="model-download-progress-text">0%</span>
+            </div>
+            <p id="model-download-status" class="model-download-status"></p>
+            <button type="button" id="model-download-btn" class="model-download-btn">Load the barkeep</button>
+        </section>
+
+        <form id="question-form">
+            <div class="parameters">
+                <div class="param-group">
+                    <label for="temperature">Classic vs inventive: <span id="temp-value" class="value-display"></span></label>
+                    <input type="range" id="temperature" name="temperature" step="0.1">
+                    <div class="param-description">Stick to the book or get creative. Lower = classic recipes, higher = new twists.</div>
+                </div>
+
+                <div class="param-group">
+                    <label for="topK">Top K: <span id="topk-value" class="value-display"></span></label>
+                    <input type="number" id="topK" name="topK">
+                    <div class="param-description">Tightens the barkeep’s choices. Lower = more consistent, higher = more variety.</div>
+                </div>
+            </div>
+
+            <div class="file-input-group">
+                <label>Photo of your bar or bottles (optional)</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="file-input" accept="image/*,audio/*" hidden>
+                    <button type="button" class="file-upload-btn" id="file-upload-btn">
+                        <span class="upload-icon">📁</span>
+                        <span class="upload-text">Show the bar</span>
+                    </button>
+                    <span class="file-selected-name" id="file-selected-name"></span>
+                </div>
+                <div class="file-preview" id="file-preview"></div>
+            </div>
+
+            <label for="question">What'll it be?</label>
+            <textarea name="question" id="question" placeholder="e.g. What can I make with gin and vermouth? / Substitute for Campari? / Scale this punch for 20 / My cocktail is too sweet"></textarea>
+
+            <button type="submit" id="ask-button">Ask the barkeep</button>
+        </form>
+
+        <div id="output"></div>
+
+        <footer class="copyright">
+            Syan Cordeiro - AI Developer - <span id="year"></span>
+        </footer>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>

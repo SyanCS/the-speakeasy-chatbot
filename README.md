@@ -4,6 +4,10 @@ A 1920s speakeasy barkeep chatbot that runs entirely in your browser. Ask for co
 
 ![The Speakeasy](bar-chat-assistant.png)
 
+### Demo
+
+**[Watch demonstration video](https://drive.google.com/file/d/1a66jY_FVDFbj3u2UkcrXdrEJXXzfrmsB/view?usp=sharing)** (Google Drive)
+
 ---
 
 ## Features
